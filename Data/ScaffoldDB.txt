@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\addel\source\repos\CustomerManager_WPF_SQL\Data\efw_customermanager_database.mdf;Integrated Security=True;Connect Timeout=30" Microsoft.EntityFrameWorkCore.SqlServer -Context SqlContext -ContextDir Data -OutputDir Models -Force 
