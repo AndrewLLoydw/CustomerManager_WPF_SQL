@@ -2,8 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CustomerManager_WPF_SQL"
+             xmlns:viewModel="clr-namespace:CustomerManager_WPF_SQL.Models.ViewModels"
+             xmlns:view="clr-namespace:CustomerManager_WPF_SQL.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewModel:CreateCustomerViewModel}">
+                <view:CreateCustomer/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ListCustomerViewModel}">
+                <view:ListCustomers/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CreateErrandViewModel}">
+                <view:CreateErrand/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ListErrandViewModel}">
+                <view:ListErrands/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

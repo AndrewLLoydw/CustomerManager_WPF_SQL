@@ -13,22 +13,24 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="1">
-            <Button Content="Lägg till kund" Command="{Binding CreateCustomerViewCommand}"/>
-            <Button Content="Lägg till ett ärende" Command="{Binding CreateErrandViewCommand}"/>
-            <Button Content="Lista upp alla kunder" Command="{Binding ListCustomerCommand}"/>
-            <Button Content="Lista upp alla ärenden" Command="{Binding ListErrandViewCommand}"/>
-        </StackPanel>
         
-        <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding CurrentView}"/>
+        <Button Grid.Column="0" Content="Lägg till kund" Command="{Binding CreateCustomerViewCommand}"/>
+        <Button Grid.Column="1" Content="Lägg till ett ärende" Command="{Binding CreateErrandViewCommand}"/>
+        <Button Grid.Column="2" Content="Lista upp alla kunder" Command="{Binding ListCustomerCommand}"/>
+        <Button Grid.Column="3" Content="Lista upp alla ärenden" Command="{Binding ListErrandViewCommand}"/>
+
+        
+        <ContentControl Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Content="{Binding CurrentView}"/>
     </Grid>
 </Window>
