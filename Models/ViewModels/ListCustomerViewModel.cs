@@ -8,5 +8,6 @@ namespace CustomerManager_WPF_SQL.Models.ViewModels
 {
     internal class ListCustomerViewModel
     {
+        public List<Customer> CustomerList { get; set; }
     }
 }

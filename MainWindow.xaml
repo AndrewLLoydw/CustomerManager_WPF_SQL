@@ -13,24 +13,26 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        
-        <Button Grid.Column="0" Content="Lägg till kund" Command="{Binding CreateCustomerViewCommand}"/>
-        <Button Grid.Column="1" Content="Lägg till ett ärende" Command="{Binding CreateErrandViewCommand}"/>
-        <Button Grid.Column="2" Content="Lista upp alla kunder" Command="{Binding ListCustomerCommand}"/>
-        <Button Grid.Column="3" Content="Lista upp alla ärenden" Command="{Binding ListErrandViewCommand}"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="CustomerManager System"/>
 
         
-        <ContentControl Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Content="{Binding CurrentView}"/>
+        <StackPanel Grid.Row="1">
+            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lägg till kund" Command="{Binding CreateCustomerViewCommand}"/>
+            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lägg till ett ärende" Command="{Binding CreateErrandViewCommand}"/>
+            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lista upp alla kunder" Command="{Binding ListCustomerCommand}"/>
+            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lista upp alla ärenden" Command="{Binding ListErrandViewCommand}"/>
+        </StackPanel>
+
+
+        <ContentControl Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Content="{Binding CurrentView}"/>
     </Grid>
 </Window>
