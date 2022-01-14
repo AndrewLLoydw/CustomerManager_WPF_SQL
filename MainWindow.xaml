@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CustomerManager_WPF_SQL"
         xmlns:viewModel="clr-namespace:CustomerManager_WPF_SQL.Models.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
 
     <Window.DataContext>
         <viewModel:MainViewModel />
@@ -22,14 +22,16 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="CustomerManager System"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#949494">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Text="CustomerManager System"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Text="Made by André Lillhannus"/>
+        </StackPanel>
 
-        
-        <StackPanel Grid.Row="1">
-            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lägg till kund" Command="{Binding CreateCustomerViewCommand}"/>
-            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lägg till ett ärende" Command="{Binding CreateErrandViewCommand}"/>
-            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lista upp alla kunder" Command="{Binding ListCustomerCommand}"/>
-            <RadioButton Padding="15" BorderThickness="0" VerticalAlignment="Center" Content="Lista upp alla ärenden" Command="{Binding ListErrandViewCommand}"/>
+        <StackPanel Grid.Row="1" Background="#feee">
+            <RadioButton Style="{StaticResource RadioButtonStyling}" Content="Lägg till kund" Command="{Binding CreateCustomerViewCommand}"/>
+            <RadioButton Style="{StaticResource RadioButtonStyling}" BorderThickness="0" VerticalAlignment="Center" Content="Lägg till ett ärende" Command="{Binding CreateErrandViewCommand}"/>
+            <RadioButton Style="{StaticResource RadioButtonStyling}" BorderThickness="0" VerticalAlignment="Center" Content="Lista upp alla kunder" Command="{Binding ListCustomerCommand}"/>
+            <RadioButton Style="{StaticResource RadioButtonStyling}" BorderThickness="0" VerticalAlignment="Center" Content="Lista upp alla ärenden" Command="{Binding ListErrandViewCommand}"/>
         </StackPanel>
 
 

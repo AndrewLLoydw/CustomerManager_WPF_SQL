@@ -7,6 +7,11 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/RadioButtonStyling.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
             <DataTemplate DataType="{x:Type viewModel:CreateCustomerViewModel}">
                 <view:CreateCustomer/>
             </DataTemplate>

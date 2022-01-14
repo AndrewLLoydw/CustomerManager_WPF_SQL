@@ -7,7 +7,55 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Grid Margin="20">
-        <Label Content="Create Customer" FontSize="18"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="140"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="Skapa en ny kund" FontSize="16" FontWeight="SemiBold"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+            <Label Content="Skriv in kundens Förnamn"/>
+            <TextBox Name="tbFirstName" Width="250"/>
+            <Label Content="Skriv in kundens Efternamn"/>
+            <TextBox Name="tbLastName"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+            <Label Content="Skriv in kundens E-postadress"/>
+            <TextBox Name="tbEmail" Width="250"/>
+            <Label Content="Skriv in kundens Mobilnummer"/>
+            <TextBox Name="tbPhoneNumber"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+            <Label Content="Skriv in kundens Address" />
+            <TextBox Name="tbStreetAddress" Width="250"/>
+            <Label Content="Skriv in kundens Postnummer"/>
+            <TextBox Name="tbPostalCode"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
+            <Label Content="Skriv in kundens Stad" />
+            <TextBox Name="tbCity" Width="250"/>
+            <Label Content="Skriv in kundens Land"/>
+            <TextBox Name="tbCountry"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin="0,0,0,10" Text="Tryck för att spara kund" HorizontalAlignment="Center"/>
+            <Button Margin="0,0,0,10" Content="Spara" Width="200" Height="50"/>
+            <TextBlock Text="Kund sparad" HorizontalAlignment="Center" Visibility="Hidden"/>
+        </StackPanel>
+        
     </Grid>
 </UserControl>

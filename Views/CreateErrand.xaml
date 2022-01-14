@@ -6,7 +6,38 @@
              xmlns:local="clr-namespace:CustomerManager_WPF_SQL.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="20">
-        <Label Content="Create Errand" FontSize="18"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="140"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="Skapa ett nytt kundärende" FontSize="16" FontWeight="SemiBold"/>
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Label Content="Vilken kund gäller det? Skriv kundens ID"/>
+            <TextBox Name="tbErrandCustomerId" Width="250"/>
+            <Label Content="Skriv en titel till ärendet"/>
+            <TextBox Name="tbErrandTitle" Width="250"/>
+            <Label Content="Beskriv ärendet"/>
+            <TextBox Name="tbErrandDescription" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Height="140" Grid.RowSpan="3">
+            </TextBox>
+            <Label Content="Skriv in tid och datum" />
+            <TextBox Name="tbErrandCreatedTime" Width="250"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin="0,0,0,10" Text="Tryck för att skapa ärende" HorizontalAlignment="Center"/>
+            <Button Margin="0,0,0,10" Content="Spara" Width="200" Height="50"/>
+            <TextBlock Text="Kund sparad" HorizontalAlignment="Center" Visibility="Hidden"/>
+        </StackPanel>
     </Grid>
 </UserControl>
