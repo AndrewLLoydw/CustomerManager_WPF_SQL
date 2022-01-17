@@ -7,8 +7,63 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Grid Margin="20">
-        <Label Content="Errands" FontSize="18"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Label Margin="0,0,0,15" Grid.Column="0" Content="Lista med kundärenden" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20"  />
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.4*" />
+                    <ColumnDefinition Width="0.4*" />
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Kund ID"/>
+                <TextBlock Grid.Column="1" Text="Kundens ärende"/>
+                <TextBlock Grid.Column="2" Text="Status på ärende"/>
+                <TextBlock Grid.Column="3" Text="Ärende ID"/>
+                <TextBlock Grid.Column="4" Text="Skapat/Ändrats"/>
+            </Grid>
+        </StackPanel>
+
+
+        <ListView x:Name="lvCustomerErrands" DataContext="CustomerManager_WPF_SQL.Models.CustomerErrand" Grid.Row="1" Background="#e8e8e8e8" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.4*" />
+                            <ColumnDefinition Width="0.4*" />
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="tbCustomerId" Grid.Column="0" Text="{Binding CustomerId}"/>
+                        <TextBlock x:Name="tbCustomerErrand" Grid.Column="1" Text="{Binding CustomerErrand}"/>
+                        <TextBlock x:Name="tbCustomerErrandStatus" Grid.Column="2" Text="{Binding CustomerErrandStatus}"/>
+                        <TextBlock x:Name="tbCustomerErrandId" Grid.Column="3" Text="{Binding CustomerErrandId}"/>
+                        <StackPanel>
+                            <TextBlock x:Name="tbCustomerErrandCreated" Grid.Column="4" Text="{Binding CustomerErrandCreated}"/>
+                            <TextBlock x:Name="tbCustomerErrandChanged" Grid.Column="4" Text="{Binding CustomerErrandChanged}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
     
 </UserControl>
