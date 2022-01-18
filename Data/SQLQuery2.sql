@@ -30,4 +30,4 @@ CREATE TABLE Customers (
 	PhoneNumber char(10) not null unique,
 	AddressId int not null references Addresses(Id),
 	ErrandId int references CustomerErrands(Id)
-)
+)	

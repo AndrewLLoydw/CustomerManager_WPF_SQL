@@ -1,5 +1,6 @@
 ﻿using CustomerManager_WPF_SQL.Data;
 using CustomerManager_WPF_SQL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,27 +9,62 @@ using System.Threading.Tasks;
 
 namespace CustomerManager_WPF_SQL.Services
 {
-    public class CustomerService
+    public class CustomerServiceManager
     {
         private readonly SqlContext _context = new SqlContext();
 
-        public void CreateCustomer(string firstname, string lastname, string email, string phonenumber, int addressId)
+        internal interface ICustomerService
         {
-            var customer = _context.Customers.Where(x => x.Email == email).FirstOrDefault();
-            if (customer == null)
-            {
-                _context.Customers.Add(new Customer { FirstName = firstname, LastName = lastname, Email = email, PhoneNumber = phonenumber, AddressId = addressId });
-                _context.SaveChanges();
-            }
-        } 
+            bool CreateCustomer(string firstname, string lastname, string email, string phonenumber, string streetaddress, string postalnumber, string city, string country);
+            IEnumerable<Customer> GetAllCustomers();
 
-        public void CreateAddress(string streetname, string postalcode, string city, string country)
+            Customer GetCustomer(string email);
+
+
+
+        }
+
+        internal class CustomerService : ICustomerService
         {
-            var address = _context.Addresses.Where(x => x.StreetName == streetname && x.PostalCode == postalcode && x.City == city && x.Country == country).FirstOrDefault();
-            if (address == null)
+            private readonly SqlContext _context = new();
+
+            public bool CreateCustomer(string firstname, string lastname, string email, string phonenumber, string streetaddress, string postalnumber, string city, string country)
             {
-                _context.Addresses.Add(new Address { StreetName = streetname, PostalCode = postalcode, City = city, Country = country });
-                _context.SaveChanges();
+                var customer = _context.Customers.Where(x => x.Email == email && x.PhoneNumber == phonenumber).FirstOrDefault();
+                if (customer == null)
+                {
+                    _context.Customers.Add(new Customer
+                    {
+                        FirstName = firstname,
+                        LastName = lastname,
+                        Email = email,
+                        PhoneNumber = phonenumber,
+                        Address = new Address
+                        {
+                            StreetName = streetaddress,
+                            PostalCode = postalnumber,
+                            City = city,
+                            Country = country
+                        }
+                    });
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+
+            public IEnumerable<Customer> GetAllCustomers()
+            {
+                return _context.Customers.Include(x => x.Address);
+            }
+
+
+            public Customer GetCustomer(string email)
+            {
+                var customer = _context.Customers.Where(x => x.Email == email).FirstOrDefault();
+
+
+                return customer;
             }
         }
     }

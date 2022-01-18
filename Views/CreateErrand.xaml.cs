@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static CustomerManager_WPF_SQL.Services.CustomerServiceManager;
 
 namespace CustomerManager_WPF_SQL.Views
 {
@@ -20,9 +21,24 @@ namespace CustomerManager_WPF_SQL.Views
     /// </summary>
     public partial class CreateErrand : UserControl
     {
+
+        private readonly ICustomerService customerService = new CustomerService();
+
         public CreateErrand()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var email = tbErrandCustomerEmail.Text;
+
+            var _customer = customerService.GetCustomer(email);
+
+            _customer.Errand = new Models.CustomerErrand
+            {
+                ErrandDescription = tbErrandCustomerEmail.Text,
+            };
         }
     }
 }

@@ -52,8 +52,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="tbCustomerError" Text="" Foreground="Red" HorizontalAlignment="Center"/>
             <TextBlock Margin="0,0,0,10" Text="Tryck för att spara kund" HorizontalAlignment="Center"/>
-            <Button Margin="0,0,0,10" Content="Spara" Width="200" Height="50"/>
+            <Button x:Name="btnAddCustomer"  Margin="0,0,0,10" Content="Spara" Width="200" Height="50" Click="btnAddCustomer_Click"/>
             <TextBlock Text="Kund sparad" HorizontalAlignment="Center" Visibility="Hidden"/>
         </StackPanel>
         

@@ -45,9 +45,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock x:Name="tbCustomerId" Grid.Column="0" Text="{Binding CustomerId}" />
-                        <TextBlock x:Name="tbCustomerFullName" Grid.Column="1" Text="{Binding CustomerFullName}"/>
-                        <TextBlock x:Name="tbCustomerEmail" Grid.Column="2" Text="{Binding CustomerEmail}"/>
+                        <StackPanel>
+                            <TextBlock Grid.Column="0" Text="{Binding Id}" />
+                            <TextBlock Grid.Column="1" ><Run Text=""/><Run Text="{Binding FirstName}"/><Run Text=""/><Run Text="{Binding LastName}"/></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding Email}"/>
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

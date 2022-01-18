@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomerManager_WPF_SQL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static CustomerManager_WPF_SQL.Services.CustomerServiceManager;
 
 namespace CustomerManager_WPF_SQL.Views
 {
@@ -20,9 +22,20 @@ namespace CustomerManager_WPF_SQL.Views
     /// </summary>
     public partial class ListCustomers : UserControl
     {
+
+        private readonly ICustomerService customerService = new CustomerService();
+
         public ListCustomers()
         {
             InitializeComponent();
+
+            lvCustomers.Items.Clear();
+            foreach(var customer in customerService.GetAllCustomers())
+            {
+                lvCustomers.Items.Add(customer);
+            }
         }
+
+
     }
 }
