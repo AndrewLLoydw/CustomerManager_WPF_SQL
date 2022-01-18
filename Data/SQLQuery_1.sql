@@ -10,6 +10,7 @@ CREATE TABLE CustomerErrands (
 	ErrandChangedTime nvarchar(20) not null,
 	ErrandStatus nvarchar(20) not null
 )
+GO
 
 CREATE TABLE Addresses (
 	Id int not null identity primary key,
