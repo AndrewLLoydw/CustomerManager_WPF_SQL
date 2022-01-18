@@ -1,16 +1,6 @@
 ﻿DROP TABLE Customers
-DROP TABLE CustomerErrands
 DROP TABLE Addresses
-
-CREATE TABLE Addresses (
-	Id int not null identity primary key,
-	StreetName nvarchar(100) not null,
-	StreetNumber int not null,
-	PostalCode char(5) not null,
-	City nvarchar (50) not null,
-	Country nvarchar(50) not null
-)
-GO
+DROP TABLE CustomerErrands
 
 CREATE TABLE CustomerErrands (
 	Id int not null identity primary key,
@@ -19,6 +9,15 @@ CREATE TABLE CustomerErrands (
 	ErrandCreatedTime nvarchar(20) not null,
 	ErrandChangedTime nvarchar(20) not null,
 	ErrandStatus nvarchar(20) not null
+)
+
+CREATE TABLE Addresses (
+	Id int not null identity primary key,
+	StreetName nvarchar(100) not null,
+	StreetNumber int not null,
+	PostalCode char(5) not null,
+	City nvarchar (50) not null,
+	Country nvarchar(50) not null
 )
 GO
 

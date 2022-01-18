@@ -35,21 +35,20 @@
         </StackPanel>
 
 
-        <ListView x:Name="lvCustomers" DataContext="CustomerManager_WPF_SQL.Models.Customer" Grid.Row="1" Background="#e8e8e8e8" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListView x:Name="lvCustomers" DataContext="CustomerManager_WPF_SQL.Models.Customer" Grid.Row="1" Background="#e8e8e8e8" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.08*" />
+                            <ColumnDefinition Width="1.1*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-
-                        <StackPanel>
-                            <TextBlock Grid.Column="0" Text="{Binding Id}" />
-                            <TextBlock Grid.Column="1" ><Run Text=""/><Run Text="{Binding FirstName}"/><Run Text=""/><Run Text="{Binding LastName}"/></TextBlock>
-                            <TextBlock Grid.Column="2" Text="{Binding Email}"/>
-                        </StackPanel>
+                        
+                        <TextBlock Grid.Column="0" Text="{Binding Id}" />
+                        <TextBlock Grid.Column="1" ><Run Text=""/><Run Text="{Binding FirstName}"/><Run Text=""/><Run Text="{Binding LastName}"/></TextBlock>
+                        <TextBlock Grid.Column="2" Text="{Binding Email}"/>
+                        
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
