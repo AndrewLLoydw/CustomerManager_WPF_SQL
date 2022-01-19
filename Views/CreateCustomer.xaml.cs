@@ -36,7 +36,6 @@ namespace CustomerManager_WPF_SQL.Views
             if (!string.IsNullOrEmpty(tbFirstName.Text) && !string.IsNullOrEmpty(tbLastName.Text) && !string.IsNullOrEmpty(tbEmail.Text) && !string.IsNullOrEmpty(tbPhoneNumber.Text) && !string.IsNullOrEmpty(tbStreetAddress.Text) && !string.IsNullOrEmpty(tbPostalCode.Text) && !string.IsNullOrEmpty(tbCity.Text) && !string.IsNullOrEmpty(tbCountry.Text))
             {
                 if (customerservice.CreateCustomer(tbFirstName.Text, tbLastName.Text, tbEmail.Text, tbPhoneNumber.Text, tbStreetAddress.Text, tbPostalCode.Text, tbCity.Text, tbCountry.Text))
-                    
                     ClearTb();
 
                 else
